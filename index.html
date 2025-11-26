@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dheeraj A U | Developer Portfolio</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Use Inter font family for a modern, clean look -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'accent-blue': '#1f75ff', // Vibrant Blue accent
+                        'primary-dark': '#1a1a1a', // Near Black background/text
+                        'light-bg': '#f5f5f5', // Light background for white sections
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom styles for geometric shapes and layout */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: #1a1a1a;
+        }
+        
+        /* Hero Section Styling */
+        #hero {
+            background-color: #ffffff;
+            padding-top: 5rem; /* Space for fixed header */
+        }
+        
+        /* Large blue angled background element (mimicking the design image) */
+        .angular-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 80%; /* Adjust as needed */
+            height: 100%;
+            background-color: #f0f4ff; /* Lighter blue wash */
+            clip-path: polygon(40% 0, 100% 0, 100% 100%, 0% 100%);
+            z-index: 0;
+        }
+        
+        /* Ensures smooth scrolling to anchors */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Container for project blocks to fit 3 in a row */
+        .project-grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header class="fixed top-0 left-0 right-0 z-20 bg-white border-b border-gray-100 shadow-sm">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center text-sm font-medium">
+            <!-- Logo/Name (Stylized D.A.U.) -->
+            <div class="text-xl font-extrabold tracking-widest text-primary-dark">Dheeraj <span class="text-accent-blue"></span>A <span class="text-accent-blue"></span>U<span class="text-accent-blue"></span></div>
+
+            <!-- Main Menu Links -->
+            <div class="hidden md:flex space-x-8 text-gray-700">
+                <a href="#about" class="hover:text-accent-blue transition duration-150">About Me</a>
+                <a href="#projects" class="hover:text-accent-blue transition duration-150">Portfolio</a>
+                <a href="#skills" class="hover:text-accent-blue transition duration-150">Skills</a>
+            </div>
+
+            <!-- Action Button -->
+            <a href="#contact" class="px-4 py-2 text-white bg-accent-blue rounded-full hover:bg-blue-700 transition duration-200 text-xs md:text-sm shadow-md">
+                Contact →
+            </a>
+        </nav>
+    </header>
+
+    <!-- Hero Section: Split Screen with Angular Background -->
+    <section id="hero" class="relative overflow-hidden min-h-screen flex items-center">
+        <!-- Blue Angular Background Shape -->
+        <div class="angular-bg"></div>
+        
+        <div class="container mx-auto px-6 py-16 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            
+            <!-- Left Content: Introduction Text -->
+            <div class="space-y-6 pt-16 lg:pt-0">
+                <p class="text-base font-semibold text-gray-600 uppercase tracking-widest">Hey, I'm </p>
+                <h1 class="text-6xl text-accent-blue md:text-7xl font-extrabold leading-tight">
+                    Dheeraj A U<span class="text-accent-blue"></span>.
+                </h1>
+                <p class="text-lg text-gray-700 max-w-lg">
+                    I build full-stack applications, dive deep into DSA, and leverage Python for AI/ML solutions.
+                </p>
+                <a href="#projects" class="inline-block px-6 py-3 text-white bg-primary-dark rounded-md hover:bg-gray-700 transition duration-200 shadow-xl font-medium">
+                    View My Work
+                </a>
+
+                <!-- NEW: Social Links Block -->
+                <div class="pt-4 flex space-x-6">
+                    <!-- GitHub Link -->
+                    <a href="https://github.com/Dheeraj-A-U" target="_blank" class="text-primary-dark hover:text-accent-blue transition duration-200 font-semibold text-sm flex items-center group">
+                        <!-- Using a basic link icon (SVG) -->
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                        GitHub
+                    </a>
+                    
+                    <!-- LinkedIn Link -->
+                    <a href="https://www.linkedin.com/in/dheeraj-a-u-05bbba334/" target="_blank" class="text-primary-dark hover:text-accent-blue transition duration-200 font-semibold text-sm flex items-center group">
+                        <!-- Using a generic user icon (SVG) -->
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.828-1.572M17 20v-4h-2m-3 0a5 5 0 00-5-5H3a5 5 0 00-5 5v4h16zM12 10a4 4 0 100-8 4 4 0 000 8z"></path></svg>
+                        LinkedIn
+                    </a>
+
+                    <!-- LeetCode Link (Using a puzzle piece icon for coding challenge) -->
+                    <a href="https://leetcode.com/" target="_blank" class="text-primary-dark hover:text-accent-blue transition duration-200 font-semibold text-sm flex items-center group">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 104 0 2 2 0 00-4 0zM17 13a2 2 0 100 4 2 2 0 000-4zM7 13a2 2 0 100 4 2 2 0 000-4zM12 4a2 2 0 100 4 2 2 0 000-4zM12 17a2 2 0 100 4 2 2 0 000-4zM5 7a2 2 0 100 4 2 2 0 000-4zM19 7a2 2 0 100 4 2 2 0 000-4zM12 10a2 2 0 100 4 2 2 0 000-4z"></path></svg>
+                        LeetCode
+                    </a>
+                </div>
+                <!-- END: Social Links Block -->
+            </div>
+
+            <!-- Right Content: Code/Visual Block (Isometric Style Placeholder) -->
+            <div class="relative w-full h-96 lg:h-128 rounded-xl shadow-2xl bg-primary-dark p-6 transform translate-y-8 lg:translate-y-0">
+                <!-- Top Header Bar -->
+                <div class="flex space-x-2 mb-4">
+                    <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                    <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                    <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                </div>
+                <!-- Mock Code/Visual -->
+                <pre class="text-gray-300 text-sm overflow-hidden h-5/6">
+<code class="language-java">
+// File: DeveloperProfile.java
+public class DheerajAU {
+
+    // --- Core Competencies ---
+    private static final String PRIMARY_LANGUAGE = "Java";
+    private static final String[] CORE_CONCEPTS = {
+        "DSA", "OOPs", "DBMS", "CN"
+    };
+
+    // --- Tech Stack (Frameworks/Tools) ---
+    public static final String[] LANGUAGES = {
+        PRIMARY_LANGUAGE, "Python", "JavaScript"
+    };
+
+    private static final String[] DATABASES = {
+        "MySQL", "MongoDB"
+    };
+    
+    /** Initializes the developer profile. */
+    public DheerajAU() {
+        // Project focus: Full-Stack Development and AI/ML Solutions
+    }
+
+    public static String getSkillSummary() {
+        return "Specializing in " + PRIMARY_LANGUAGE + " and problem-solving.";
+    }
+}
+</code>
+                </pre>
+                <div class="absolute bottom-0 left-0 w-full h-1/4 bg-gradient-to-t from-primary-dark to-transparent"></div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- About Me Section (Simplified and Centered) -->
+    <section id="about" class="py-24 bg-white">
+        <div class="container mx-auto px-6 max-w-4xl flex flex-col md:flex-row items-start md:items-center gap-12">
+            
+            <!-- Left: Portrait/Image -->
+            <div class="w-full md:w-1/3 flex justify-center">
+                <img src="https://placehold.co/200x250/e0e0e0/555555?text=Dheeraj" 
+                     alt="Dheeraj A U Portrait" 
+                     class="w-48 h-48 object-cover rounded-xl shadow-lg border-4 border-gray-100"
+                     onerror="this.onerror=null;this.src='https://placehold.co/200x250/e0e0e0/555555?text=D.A.U';"
+                >
+            </div>
+
+            <!-- Right: About Content -->
+            <div class="w-full md:w-2/3">
+                <span class="text-xs font-semibold text-accent-blue uppercase tracking-widest mb-3 inline-block">ABOUT ME</span>
+                <p class="text-lg leading-relaxed mb-4 text-gray-700">
+                    I am a Java developer with a strong foundation in Data Structures, Algorithms (DSA), and Object-Oriented Programming (OOPs). My passion lies in solving real-world challenges through code, which is why I actively participate in hackathons.
+                </p>
+                <p class="text-base leading-relaxed text-gray-600">
+                    Currently pursuing my B.E. in Artificial Intelligence & Machine Learning, I bridge robust backend development (Java, MySQL) with modern frontend/mobile frameworks (React Native). My goal is to build innovative, efficient, and scalable solutions.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services/Projects Section (Mimics the geometric layout) -->
+    <section id="projects" class="relative py-24 bg-light-bg overflow-hidden">
+        
+        <!-- Angular Blue Shape 1 (Top Left) -->
+        <div class="absolute top-0 left-0 w-full h-1/2 bg-accent-blue transform -translate-y-1/2" style="clip-path: polygon(0 0, 40% 0, 0% 100%); opacity: 0.05;"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <span class="text-xs font-semibold text-accent-blue uppercase tracking-widest mb-3 inline-block">PORTFOLIO</span>
+            <h2 class="text-4xl font-extrabold mb-12 text-primary-dark tracking-tighter">Featured Projects</h2>
+            
+            <!-- Project Grid - Using the custom grid class for responsive 3-column layout -->
+            <div class="project-grid-3">
+
+                <!-- Project 1: Student Management System (Java) -->
+                <div class="bg-white p-6 rounded-lg shadow-xl border border-gray-100 hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
+                    <span class="text-xl font-bold text-primary-dark mb-2 block">Student Management System</span>
+                    <p class="text-gray-600 text-sm mb-4">Desktop CRUD app for student records.</p>
+                    <div class="space-y-1 text-xs text-gray-700">
+                        <p class="font-medium text-accent-blue">Java Developer</p>
+                        <ul class="flex flex-wrap gap-2 pt-2">
+                            <li class="bg-gray-100 px-2 py-0.5 rounded-full">Java</li>
+                            <li class="bg-gray-100 px-2 py-0.5 rounded-full">JavaFX</li>
+                            <li class="bg-gray-100 px-2 py-0.5 rounded-full">MySQL</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Project 2: Intelli-Med Mobile App (React Native) -->
+                <div class="bg-white p-6 rounded-lg shadow-xl border border-gray-100 hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
+                    <span class="text-xl font-bold text-primary-dark mb-2 block">Intelli-Med</span>
+                    <p class="text-gray-600 text-sm mb-4">AI-driven healthcare mobile app.</p>
+                    <div class="space-y-1 text-xs text-gray-700">
+                        <p class="font-medium text-accent-blue">Mobile App Developer - react native</p>
+                        <ul class="flex flex-wrap gap-2 pt-2">
+                            <li class="bg-gray-100 px-2 py-0.5 rounded-full">React Native</li>
+                            <li class="bg-gray-100 px-2 py-0.5 rounded-full">Firebase</li>
+                            <li class="bg-gray-100 px-2 py-0.5 rounded-full">JavaScript</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Project 3: Fake Currency Detector (AI/ML) -->
+                <div class="bg-white p-6 rounded-lg shadow-xl border border-gray-100 hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
+                    <span class="text-xl font-bold text-primary-dark mb-2 block">Fake Currency Detector - python</span>
+                    <p class="text-gray-600 text-sm mb-4">YOLO object detection deployed with Streamlit.</p>
+                    <div class="space-y-1 text-xs text-gray-700">
+                        <p class="font-medium text-accent-blue">AI/ML Developer</p>
+                        <ul class="flex flex-wrap gap-2 pt-2">
+                            <li class="bg-gray-100 px-2 py-0.5 rounded-full">YOLO</li>
+                            <li class="bg-gray-100 px-2 py-0.5 rounded-full">Streamlit</li>
+                            <li class="bg-gray-100 px-2 py-0.5 rounded-full">Python</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Skills/Core Concepts Section (Dark/Blue Contrast Section) -->
+    <section id="skills" class="py-24 bg-primary-dark text-primary-light">
+        <div class="container mx-auto px-6">
+            <span class="text-xs font-semibold text-accent-blue uppercase tracking-widest mb-3 inline-block">COMPETENCIES</span>
+            <h2 class="text-4xl font-extrabold mb-12 text-white tracking-tighter">My Technical Toolkit</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Card 1: Core Fundamentals (Blue Background) -->
+                <div class="bg-accent-blue text-white p-6 rounded-xl shadow-xl">
+                    <h3 class="text-2xl font-bold mb-4">Core Fundamentals</h3>
+                    <ul class="space-y-3 text-lg font-light">
+                        <li>Data Structures & Algorithms (DSA)</li>
+                        <li>Object-Oriented Programming (OOPs)</li>
+                        <li>Database Management Systems (DBMS)</li>
+                    </ul>
+                </div>
+                
+                <!-- Card 2: Languages & Frameworks (Dark Background) -->
+                <div class="bg-gray-800 p-6 rounded-xl shadow-xl">
+                    <h3 class="text-2xl font-bold mb-4 text-white">Languages & Frameworks</h3>
+                    <ul class="space-y-3 text-gray-300 text-lg font-light">
+                        <li>Java (Primary)</li>
+                        <li>Python, JavaScript</li>
+                        <li>React.js, React Native, JavaFX</li>
+                    </ul>
+                </div>
+
+                <!-- Card 3: Databases & Tools (Dark Background) -->
+                <div class="bg-gray-800 p-6 rounded-xl shadow-xl">
+                    <h3 class="text-2xl font-bold mb-4 text-white">Databases & Tools</h3>
+                    <ul class="space-y-3 text-gray-300 text-lg font-light">
+                        <li>MySQL, MongoDB</li>
+                        <li>Git/GitHub, Maven, Gradle</li>
+                        <li>IntelliJ IDEA, VS Code</li>
+                    </ul>
+                </div>
+
+            </div>
+            
+            <!-- Achievements & Enthusiast Section -->
+            <div class="mt-16 pt-8 border-t border-gray-700">
+                 <h3 class="text-3xl font-bold mb-6 text-white tracking-tight">Achievements & Drive</h3>
+                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-lg">
+                    <div class="p-6 rounded-lg border border-gray-700">
+                        <p class="font-semibold text-accent-blue mb-2">Competition Success</p>
+                        <ul class="list-disc list-inside space-y-1 text-gray-300 text-sm">
+                            <li>1st place - College-level Bug Hunt coding competition.</li>
+                            <li>Qualified for the (SIH) 2025.</li>
+                            <li>5th place in BMS hackathon.</li>
+                        </ul>
+                    </div>
+                    <div class="p-6 rounded-lg border border-gray-700">
+                        <p class="font-semibold text-accent-blue mb-2">Passion for Innovation</p>
+                        <p class="text-gray-300 text-sm">
+                            Hackathon enthusiast and problem solver, focused on building innovative solutions. Selected for the Maker Space Program.
+                        </p>
+                    </div>
+                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Contact Section (Styled as a distinct call-to-action block) -->
+    <footer id="contact" class="bg-white py-20 border-t-8 border-accent-blue">
+        <div class="container mx-auto px-6 flex flex-col items-center">
+            
+            <span class="text-xs font-semibold text-primary-dark uppercase tracking-widest mb-3 inline-block">GET IN TOUCH</span>
+            <h2 class="text-5xl font-extrabold text-primary-dark mb-4 tracking-tight text-center">Need help developing your application?</h2>
+            
+            <a href="mailto:audheeraj875@gmail.com" class="px-8 py-3 mt-6 text-lg font-semibold text-white bg-accent-blue rounded-md shadow-xl hover:bg-blue-700 transition duration-300 transform hover:scale-105">
+                Contact: audheeraj875@gmail.com
+            </a>
+
+            <div class="mt-16 pt-6 border-t border-gray-200 w-full max-w-2xl text-center">
+                <p class="text-xs text-gray-500">&copy; 2025 Dheeraj A U. Redesigned to be sharp and modern.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
